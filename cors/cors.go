@@ -83,7 +83,7 @@ func CORS(allowOriginHosts []string) bm.HandlerFunc {
 		MaxAge:           time.Duration(0),
 		AllowOriginFunc: func(origin string) bool {
 			for _, host := range allowOriginHosts {
-				if strings.HasSuffix(strings.ToLower(origin), host) {
+				if strings.HasPrefix(strings.ToLower(origin), host) {
 					return true
 				}
 			}
